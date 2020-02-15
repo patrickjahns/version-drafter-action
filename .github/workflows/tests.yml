@@ -15,10 +15,12 @@ jobs:
         yarn install
         yarn lint
         yarn test --passWithNoTests
-    - name: Dry-Run
+    - name: dry-run
       id: version
-      run: ./node_modules/.bin/probot receive ./index.js
+      run:
+        ./node_modules/.bin/probot receive ./index.js
       env:
+        SKIP_ENV_CHECK: true
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: test-output-received
       run: |
