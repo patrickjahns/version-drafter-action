@@ -1,8 +1,8 @@
 name: 'Version Drafter'
 description: 'Determines the next semantic version based on github labels of merged pull requests'
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: 'node12'
+  main: 'dist/index.js'
 branding:
   icon: trending-up
   color: orange

@@ -3,22 +3,50 @@ name: Tests
 on: [push, pull_request]
 
 jobs:
-  test:
+#  test:
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: actions/checkout@master
+#    - uses: actions/setup-node@v1
+#      with:
+#        node-version: 10.x
+#    - name: Test
+#      run: |
+#        yarn install
+#        yarn lint
+#        yarn test
+#    - name: dry-run
+#      id: version
+#      run:
+#        ./node_modules/.bin/probot receive ./index.js
+#      env:
+#        SKIP_ENV_CHECK: true
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#    - name: test-output-received
+#      if: github.event_name == 'push'
+#      run: |
+#        if [[ -z "${SEMVER}" ]]; then echo "failed - variable is empty"; exit 1; else echo "success"; exit 0; fi
+#      env:
+#        SEMVER: ${{ steps.version.outputs.next-version }}
+
+  test-adapter:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
     - uses: actions/setup-node@v1
       with:
-        node-version: 10.x
-    - name: Test
-      run: |
-        yarn install
-        yarn lint
-        yarn test --passWithNoTests
+        node-version: 12.x
+    - name: prepare env
+      run: yarn install
+    - name: lint
+      run: yarn lint
+    - name: test
+      run: yarn test
+    - name: built
+      run: yarn build
     - name: dry-run
       id: version
-      run:
-        ./node_modules/.bin/probot receive ./index.js
+      uses: ./
       env:
         SKIP_ENV_CHECK: true
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -4,3 +4,5 @@ npm-debug.log
 .env
 coverage
 package-lock.json
+dist/**
+!dist/index.js
