@@ -23,6 +23,7 @@ jobs:
         SKIP_ENV_CHECK: true
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: test-output-received
+      if: github.event_name == 'push'
       run: |
         if [[ -z "${SEMVER}" ]]; then echo "failed - variable is empty"; exit 1; else echo "success"; exit 0; fi
       env:
