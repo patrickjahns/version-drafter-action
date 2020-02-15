@@ -1,0 +1,39 @@
+{
+  "name": "version-drafter-action",
+  "version": "1.0.0",
+  "description": "Github action that determines the next semantic version based github labels of merged pull requests",
+  "author": "Patrick Jahns <github@patrickjahns.de> (https://github.com/patrickjahns)",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec \"npm start\"",
+    "start": "probot run ./index.js",
+    "test": "jest",
+    "test:watch": "jest --watch --notify --notifyMode=change --coverage",
+    "lint": "eslint '**/*.js'",
+    "prettier": "prettier --write **/*.{js,md,json}"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.2.0",
+    "release-drafter-github-app": "git+https://github.com/release-drafter/release-drafter.git#c09a029197b124b16dbac359896f26d16a4d664e"
+  },
+  "devDependencies": {
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.9.0",
+    "eslint-plugin-prettier": "3.1.2",
+    "jest": "24.9.0",
+    "lint-staged": "9.5.0",
+    "nodemon": "2.0.2",
+    "prettier": "1.19.1"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+name: Tests
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@v1
+      with:
+        version: 10.x
+    - name: Test
+      run: |
+        yarn install
+        yarn lint
+        yarn test --passWithNoTests
+    - name: Dry-Run
+      run: ./node_modules/.bin/probot receive ./index.js
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

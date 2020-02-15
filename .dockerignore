@@ -1,0 +1,7 @@
+node_modules
+test
+.github
+.git
+.eslintignore
+.eslintrc
+.gitignore
