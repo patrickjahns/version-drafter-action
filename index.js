@@ -1,7 +1,6 @@
 const { getConfig } = require('./lib/config')
 const log = require('release-drafter-github-app/lib/log')
 const core = require('@actions/core')
-const { getVersionInfo } = require('release-drafter-github-app/lib/versions')
 const {
   isTriggerableBranch
 } = require('release-drafter-github-app/lib/triggerable-branch')
@@ -32,11 +31,10 @@ module.exports = app => {
     }
 
     // get latest release information
-    const { draftRelease, lastRelease } = await findReleases({ app, context })
+    const { lastRelease: lastRelease } = await findReleases({ app, context })
 
     // fetch upcoming pull requests
     const {
-      commits,
       pullRequests: mergedPullRequests
     } = await findCommitsWithAssociatedPullRequests({
       app,
