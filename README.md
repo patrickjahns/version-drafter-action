@@ -3,7 +3,7 @@
 [![License: ISC](https://img.shields.io/github/license/patrickjahns/version-drafter-action)](LICENSE)
 
 [GitHub Action](https://github.com/features/actions) to determine the next [semantic version](https://semver.org/) based  on the github labels of merged pull requests
-
+![Tests](https://github.com/patrickjahns/version-drafter-action/workflows/Tests/badge.svg?event=push)
 
 ## Usage
 
