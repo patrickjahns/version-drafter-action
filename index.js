@@ -32,9 +32,13 @@ module.exports = app => {
 
     // get latest release information
     let { lastRelease: lastRelease } = await findReleases({ app, context })
-    if ( lastRelease == undefined) {
-      log({ app, context, message: 'last releases was not found, assuming 0.0.0 as tag' })
-      lastRelease = { 'tag_name': '0.0.0' }
+    if (lastRelease == undefined) {
+      log({
+        app,
+        context,
+        message: 'last releases was not found, assuming 0.0.0 as tag'
+      })
+      lastRelease = { tag_name: '0.0.0' }
     }
     // fetch upcoming pull requests
     const {
