@@ -9,13 +9,19 @@ jobs:
     - uses: actions/checkout@master
     - uses: actions/setup-node@v1
       with:
-        version: 10.x
+        node-version: 10.x
     - name: Test
       run: |
         yarn install
         yarn lint
         yarn test --passWithNoTests
     - name: Dry-Run
+      id: version
       run: ./node_modules/.bin/probot receive ./index.js
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: test-output-received
+      run: |
+        if [[ -z "${SEMVER}" ]]; then echo "failed - variable is empty"; exit 1; else echo "success"; exit 0; fi
+      env:
+        SEMVER: ${{ steps.version.outputs.next-version }}
