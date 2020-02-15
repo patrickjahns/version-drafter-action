@@ -26,7 +26,10 @@ module.exports = app => {
 
     const branch = ref.replace(/^refs\/heads\//, '')
 
-    if (!isTriggerableBranch({ branch, app, context, config }) && !process.env['SKIP_ENV_CHECK']) {
+    if (
+      !isTriggerableBranch({ branch, app, context, config }) &&
+      !process.env['SKIP_ENV_CHECK']
+    ) {
       return
     }
 
