@@ -10,7 +10,7 @@
 
 To use the action, create a yaml file ( i.e. `version.yml` ) in your `.github/workflows` folder 
 
-### Standalone Example
+### Standalone example
 
 ```yaml
 
