@@ -1,9 +1,6 @@
 const { getConfig } = require('./lib/config')
 const log = require('release-drafter-github-app/lib/log')
 const core = require('@actions/core')
-const {
-  isTriggerableBranch
-} = require('release-drafter-github-app/lib/triggerable-branch')
 const { findReleases } = require('release-drafter-github-app/lib/releases')
 const {
   findCommitsWithAssociatedPullRequests
@@ -23,15 +20,7 @@ module.exports = app => {
     // GitHub Actions merge payloads slightly differ, in that their ref points
     // to the PR branch instead of refs/heads/master
     const ref = process.env['GITHUB_REF'] || context.payload.ref
-
     const branch = ref.replace(/^refs\/heads\//, '')
-
-    if (
-      !isTriggerableBranch({ branch, app, context, config }) &&
-      !process.env['SKIP_ENV_CHECK']
-    ) {
-      return
-    }
 
     // get latest release information
     let { lastRelease: lastRelease } = await findReleases({ app, context })
