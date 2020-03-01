@@ -66,6 +66,17 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
+### Configuration
+
+The action determines the next semantic version based on github labels. The mapping of the labels can be configured by
+providing a yaml configuration (usually at `.github/version-drafter.yml`)
+
+```yaml
+major-labels: ['semver:major']
+minor-labels: ['semver:minor','enhancement']
+patch-labels: ['semver:patch','bug']
+```
+
 ### Output
 
 The action will output the calculated next semantic version as `next-version`
