@@ -50,6 +50,7 @@ module.exports = app => {
       config
     )
     log({ app, context, message: 'calculated next version: ' + nextVersion })
+    core.setOutput('current-version', lastRelease.tag_name)
     core.setOutput('next-version', nextVersion)
   })
 }

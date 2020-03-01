@@ -25,6 +25,8 @@ jobs:
     - name: test-output-received
       if: github.event_name == 'push'
       run: |
-        if [[ -z "${SEMVER}" ]]; then echo "failed - variable is empty"; exit 1; else echo "success - received ${SEMVER}"; exit 0; fi
+        if [[ -z "${SEMVER}" ]]; then echo "failed - variable is empty"; exit 1; else echo "success - received ${SEMVER}"; fi
+        if [[ -z "${CURVER}" ]]; then echo "failed - variable is empty"; exit 1; else echo "success - received ${CURVER}"; fi
       env:
         SEMVER: ${{ steps.version.outputs.next-version }}
+        CURVER: ${{ steps.version.outputs.current-version }}
