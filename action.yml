@@ -16,5 +16,7 @@ inputs:
     required: false
 
 outputs:
+  current-version:
+    description: 'The current version/tag'
   next-version:
     description: 'The calculated next version'

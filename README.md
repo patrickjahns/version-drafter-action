@@ -68,4 +68,4 @@ jobs:
 
 ### Output
 
-The action will output the calculated next semantic version as `next-version`
+The action will output the calculated next semantic version as `next-version`, as well as the current tag as `current-version`
