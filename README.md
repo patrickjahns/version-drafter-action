@@ -10,7 +10,7 @@
 
 To use the action, create a yaml file ( i.e. `version.yml` ) in your `.github/workflows` folder 
 
-### Standalone Example
+### Standalone example
 
 ```yaml
 
@@ -64,6 +64,17 @@ jobs:
           name: ${{ format('v{0}', steps.version.outputs.next-version) }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+### Configuration
+
+The action determines the next semantic version based on github labels. The mapping of the labels can be configured by
+providing a yaml configuration (usually at `.github/version-drafter.yml`)
+
+```yaml
+major-labels: ['semver:major']
+minor-labels: ['semver:minor','enhancement']
+patch-labels: ['semver:patch','bug']
 ```
 
 ### Output
