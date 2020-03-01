@@ -1,0 +1,17 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  update_release_draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: patrickjahns/version-drafter-action@master
+        id: version
+      - uses: release-drafter/release-drafter@v5
+        with: ${{ steps.version.outputs.next-version }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
