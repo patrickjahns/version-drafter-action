@@ -45,6 +45,9 @@ labels:
   - name: wontfix
     color: ffffff
     description: This will not be worked on
+  - name: dependencies
+    color: 0366d6
+    description: Pull requests that update a dependency file
   - name: semver:patch
     color: 834dd1
     description: Change leading to a patch level version bump
