@@ -1,11 +1,20 @@
 name: 'Version Drafter'
 description: 'Determines the next semantic version based on github labels of merged pull requests'
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
+
 branding:
   icon: trending-up
   color: orange
+
+inputs:
+  config-name:
+    description: 'Name of the configuration file to use'
+    default: 'version-drafter.yml'
+    required: false
+
 outputs:
   next-version:
     description: 'The calculated next version'
