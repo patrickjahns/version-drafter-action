@@ -14,7 +14,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.0",
+    "@actions/core": "^1.2.3",
     "release-drafter-github-app": "git+https://github.com/release-drafter/release-drafter.git#c09a029197b124b16dbac359896f26d16a4d664e"
   },
   "devDependencies": {
