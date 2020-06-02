@@ -4670,10 +4670,10 @@ registry-url@^5.0.0:
   dependencies:
     rc "^1.2.8"
 
-release-drafter-github-app@^5.8.0:
-  version "5.8.0"
-  resolved "https://registry.yarnpkg.com/release-drafter-github-app/-/release-drafter-github-app-5.8.0.tgz#6e48f9f6beb0071ebcfceb1e7bf81dd20b0a3405"
-  integrity sha512-0bww3ux4e+1n1XWMy25bXeaA1BKLMTc6ZRzN35fx+c2FCqcBvfPYF4EJHbPDLTRC2Iiw228ndrqIgtzBpf2Nkg==
+release-drafter-github-app@^5.9.0:
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/release-drafter-github-app/-/release-drafter-github-app-5.9.0.tgz#82cc06161bfd4ecd3ad2f98309cd4ce28c5c6766"
+  integrity sha512-x0NXcIWY/V9G2oAoEKXz3mds38a90VWT8sMaeB4262WfkOuCcxGF/NSi5sjyUGvtmUrBfPdeNT+N5jqbhKF2rw==
   dependencies:
     "@actions/core" "^1.2.0"
     "@hapi/joi" "15.1.1"
