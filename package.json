@@ -15,7 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.2.6",
-    "release-drafter-github-app": "^5.8.0"
+    "release-drafter-github-app": "^5.12.0"
   },
   "devDependencies": {
     "eslint": "7.11.0",
