@@ -1,4 +1,4 @@
-FROM node:13.6.0-alpine
+FROM node:14.17.6-alpine
 ENV NODE_ENV=production
 LABEL "repository"="https://github.com/patrickjahns/version-drafter-action" \
       "homepage"="https://github.com/patrickjahns/version-drafter-action" \
