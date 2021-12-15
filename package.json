@@ -24,7 +24,7 @@
     "jest": "27.4.5",
     "lint-staged": "11.1.2",
     "nodemon": "2.0.15",
-    "prettier": "2.4.1"
+    "prettier": "2.5.1"
   },
   "lint-staged": {
     "*.js": [
