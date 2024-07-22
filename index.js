@@ -6,9 +6,11 @@ const {
   findCommitsWithAssociatedPullRequests
 } = require('release-drafter-github-app/lib/commits')
 const { incrementVersion } = require('./lib/version')
+const { runnerIsActions } = require('release-drafter-github-app/lib/utils')
 
 module.exports = app => {
-  app.on('push', async context => {
+  const event = runnerIsActions() ? '*' : 'push'
+  app.on(event, async (context) => {
     log({ app, context, message: 'init' })
     let config = await getConfig({
       app,
